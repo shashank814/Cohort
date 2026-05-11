@@ -1,0 +1,199 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    text-decoration: none;
+}
+
+html, body {
+    height: 100%;
+    width: 100%;
+    background-color: rgb(239, 237, 235);
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+section {
+    margin-top: 20px;
+    margin-left: 130px;
+    display: flex;
+    gap: 100px;
+}
+
+nav {
+    height: 50px;
+    display: flex;
+    margin-top: 10px;
+    align-items: center;
+}
+
+.logo {
+    position: absolute;
+    left: 12%;
+    top: 2%;
+}
+
+.nav-tags {
+    position: absolute;
+    left: 36%;
+    top: 2%;
+    display: flex;
+    justify-content: space-between;
+    gap: 30px;
+    font-size: 20px;
+    margin-top: 10px;
+}
+
+.icons {
+    position: absolute;
+    right: 15%;
+    top: 2%;
+}
+
+.left {
+    display: flex;
+    flex-direction: column;
+    width: 30%;
+    margin-left: 50px;
+}
+
+.top {
+    display: flex;
+    gap: 10px;
+}
+
+.heading {
+    margin-top: 20px;
+}
+
+.heading h3 {
+    font-size: 40px;
+    padding-bottom: 10px;
+}
+
+.heading p {
+    margin-top: 20px;
+    font-size: 15px;
+}
+
+.colors {
+    margin-top: 20px;
+    display: flex;
+    gap: 20px;
+    font-size: 20px;
+}
+
+.colors .div1 {
+    height: 40px;
+    width: 40px;
+    border-radius: 50%;
+    background-color: rgb(32, 47, 32);
+}
+.colors .div2 {
+    height: 40px;
+    width: 40px;
+    border-radius: 50%;
+    background-color: cornsilk;
+}
+.colors .div3 {
+    height: 40px;
+    width: 40px;
+    border-radius: 50%;
+    background-color: rgb(193, 126, 137);
+}
+
+.details {
+    margin-top: 20px;
+}
+
+.p1 {
+    margin-top: 10px;
+    font-size: 25px;
+    font-weight: 600;
+}
+
+.details p{
+    margin-top: 20px;
+    font-size: 14px;
+}
+
+.img {
+    margin-top: 20px;
+    display: flex;
+    gap: 30px;
+}
+
+.mid {
+    margin-top: 50px;
+}
+
+.mid h3 {
+    position: absolute;
+    left: 48%;
+    top: 20%;
+    padding: 3px; 
+    background-color: white;
+    border: 2px solid black;
+    border-radius: 10px;
+}
+
+.mid p {
+    position: absolute;
+    left: 65%;
+    top: 20%;
+    padding: 5px; 
+    font-weight: 500;
+    background-color: white;
+    border: 2px solid black;
+    border-radius: 10px;
+}
+
+.bag {
+    height: 100px;
+    width: 100px;
+    border-radius: 50%;
+    background-color: rgb(32, 47, 32);
+    position: absolute;
+    top: 50%;
+    left: 62%;
+}
+
+.mid div img {
+    align-items: center;
+    margin: 33px;
+}
+
+.mid div p {
+    background: transparent;
+    border: none;
+    font-size: 15px;
+    position: absolute;
+    top: 60%;
+    left: 8%;
+    font: bold;
+}
+
+.bottom {
+    margin-top: 70px;
+    background-color: rgb(235, 227, 218);
+    display: flex;
+    border-radius: 20px;    
+    padding-bottom: 20px;
+    padding-left: 20px;
+}
+
+.right {
+    margin-top: 50px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+
+
+
+/* 
+transform: rotate(90deg)
+transform: rotateY(45deg)
+transform: rotateX(45deg)
+
+*/

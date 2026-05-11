@@ -1,0 +1,173 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background: #0d0d0d;
+}
+
+/* ================= HERO ================= */
+.hero {
+    position: relative;
+    height: 100vh;
+    overflow: hidden;
+}
+
+/* Background */
+.bg {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    filter: blur(2px) brightness(0.6);
+    transform: scale(1.05);
+}
+
+/* Content */
+.content {
+    position: absolute;
+    top: 18%;
+    width: 100%;
+    text-align: center;
+    color: white;
+    z-index: 4;
+}
+
+.top-text {
+    font-size: 18px;
+    margin-right: 70%;
+}
+
+/* Main Title */
+.main-title {
+    display: flex;
+    justify-content: space-between;
+    padding: 0 8%;
+    font-size: 90px;
+    font-weight: 900;
+    letter-spacing: 6px;
+    text-shadow: 0 5px 25px rgba(0,0,0,0.6);
+}
+
+/* Subtitle */
+.subtitle {
+    font-size: 18px;
+    margin-left: 70%;
+}
+
+/* Button image */
+.btn-img {
+    margin-top: 25px;
+    height: 60px;
+    width: 250px;
+    cursor: pointer;
+}
+
+/* Character */
+.monkey {
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    height: 80%;
+    z-index: 3;
+}
+
+/* ================= NAVBAR ================= */
+nav {
+    position: fixed;
+    top: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 85%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 10;
+}
+
+/* Logo */
+.logo img {
+    height: 30px;
+}
+
+/* Tags */
+.tags {
+    display: flex;
+    gap: 25px;
+}
+
+.tags a {
+    text-decoration: none;
+    color: white;
+    font-size: 15px;
+    transition: 0.3s;
+}
+
+.tags a:hover {
+    color: gold;
+}
+
+/* Icons */
+.icons img {
+    height: 26px;
+    margin-left: 10px;
+}
+
+/* ================= CURVE ================= */
+/* .hero::after {
+    content: "";
+    position: absolute;
+    bottom: -60px;
+    width: 120%;
+    height: 150px;
+    background: #1a1a1a;
+    border-radius: 50%;
+    left: -10%;
+    z-index: 5;
+} */
+
+/* ================= VISION ================= */
+.vision {
+    background: #1a1a1a;
+    color: white;
+    text-align: center;
+    /* padding: 100px 10%; */
+    padding: 100px 10%;
+    
+    position: relative;
+    z-index: 5;
+
+    clip-path: ellipse(100% 100% at 50% 100%);
+    
+    margin-top: -150px;
+}
+
+.vision h2 {
+    font-size: 32px;
+    letter-spacing: 4px;
+}
+
+.line {
+    width: 60%;
+    height: 2px;
+    background: #888;
+    margin: 20px auto;
+}
+
+.vision-content {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 40px;
+    gap: 40px;
+}
+
+.vision-content p {
+    width: 50%;
+    font-size: 14px;
+    color: #ccc;
+    line-height: 1.6;
+}

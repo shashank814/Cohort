@@ -1,0 +1,77 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html, body {
+    height: 100%;
+    width: 100%;
+}
+
+
+#box{
+    height: 200px;
+    width: 200px;
+    background-color: red;
+    margin: 50px 20px;
+    padding: 40px;
+}
+
+/* margin -> imaginary space between elements */
+
+#inner {
+    height: 100px;
+    width: 100px;
+    background-color: yellowgreen;
+}
+
+#box2 {
+    height: 200px;
+    width: 200px;
+    background-color: chocolate;
+}
+
+button {
+    font-size: 20px;
+    margin: 50px;
+    padding: 10px;
+    background-color: cadetblue;
+    border-radius: 10px;
+    border: 5px solid rgb(184, 175, 129);
+    transition: all ease 0.5s;
+}
+
+/* Pseudo Classes */
+button:hover {
+    background-color: antiquewhite;
+    color: brown;
+}
+
+/* works only when we click on button */
+/* button:active {
+    background-color: antiquewhite;
+    color: brown;
+} */
+
+
+/* positin in css -> absolute */
+#box3{
+    height: 200px;
+    width: 200px;
+    color: white;
+    background-color: red;
+    position: absolute;
+    right: 0px;
+    top: 0px;
+}
+
+#box4{
+    height: 200px;
+    width: 200px;
+    background-color: orange;
+    position: absolute;
+    right: 50%;
+    top: 50%;
+    transform: translate(-50% ,-50%);
+}

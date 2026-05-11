@@ -1,0 +1,62 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html, body {
+    height: 100%;
+    width: 100%;
+    background-color: rgb(15, 10, 10);
+    color: white;
+}
+
+@font-face {
+    font-family: "raj";
+    src: url("./Huge\ is\ Life\ Personal\ Use\.ttf");
+}
+
+nav {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    padding: 20px;
+}
+
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    gap: 40px;
+    padding-right: 100px;
+}
+
+img {
+    height: 50%;
+    width: 30%;
+    align-items: start;
+}
+
+.main {
+    display: flex;
+    justify-content: space-around;
+}
+
+.content { 
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin-left: 100px;
+    padding-right: 50px;
+}
+
+.my {
+    font-size: 100px;
+    font-weight: bold;
+    font-family: "raj", 'Times New Roman', Times, serif;
+}
+
+p {
+    font-size: 20px;
+    margin-top: 10px;
+    margin-bottom: 20px;
+}

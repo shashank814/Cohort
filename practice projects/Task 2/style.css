@@ -1,0 +1,193 @@
+*{
+    margin: 0%;
+    padding: 0%;
+    box-sizing: border-box;
+}
+
+html, body {
+    height: 100%;
+    width: 100%;
+}
+
+#right-nav {
+    position: absolute;
+    top: 15px;
+    left: 57%;
+    display: flex;
+    gap: 70px; 
+    margin-top: 15px;
+}
+
+#right-nav a {
+    text-decoration: none;
+    color: white;
+    font-size: 20px;
+}
+
+section {
+    display: flex;
+    height: 100vh;
+}
+
+.center-img {
+    height: 70%;
+    width: 25%;
+    position: absolute;
+    top: 10%;
+    left: 36%;
+}
+
+#left {
+    background-color: rgb(221, 205, 205);
+    width: 50%;
+}
+
+#right {
+    background-color: rgb(188, 28, 28);
+    width: 50%;
+}
+
+#left .nav {
+    display: flex;
+    gap: 100px;
+    margin-left: 50px;
+    margin-top: 30px;
+}
+
+#left .nav input {
+    padding: 10px;
+    border-radius: 20px;
+    border: none;
+}
+
+.body { 
+    margin-top: 100px;
+}
+
+.body .p1 {
+    position: absolute;
+    top: 50%;
+    right: 75%;
+    transform: rotate(270deg);
+    font-size: 90px;
+}
+
+.main {
+    margin-left: 40%;
+    margin-top: 20%;
+}
+
+.main li{
+    font-weight: 600;
+}
+
+hr {
+    margin-top: 10px;
+    width: 20%;
+}
+#right {
+    background-color: rgb(188, 28, 28);
+    width: 50%;
+    color: white;
+    display: flex;
+    justify-content: center;
+}
+
+.right-content {
+    width: 70%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    padding: 60px 0;
+}
+
+.heading {
+    font-size: 65px;
+    margin-left: 80px;
+    margin-top: 40px;
+}
+
+.info {
+    display: flex;
+    align-items: center;
+    margin-top: 50px;
+    margin-left: 80px;
+    gap: 50px;
+}
+
+.location {
+    display: flex;
+    gap: 5px;
+}
+
+.gender {
+    display: flex;
+    gap: 5px;
+    margin-top: 10px;
+}
+
+.gender img {
+    height: 40px;
+    width: 30px;
+}
+
+.size {
+    display: flex;
+    gap: 5px;
+    margin-top: 10px;
+}
+
+.size img {
+    height: 40px;
+    width: 30px;
+}
+
+.insect {
+    text-align: center;
+}
+
+.insect img {
+    height: 60px;
+}
+
+.divider {
+    height: 100px;
+    width: 2px;
+    background: white;
+}
+
+.icons {
+    font-size: 14px;
+}
+
+.bottom {
+    margin-top: 50px;
+}
+
+.price {
+    font-size: 24px;
+    font-weight: bold;
+    margin-bottom: 20px;
+    margin-left: 82px;
+}
+
+.toggle {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    margin: 10px 80px;
+}
+
+.toggle img {
+    width: 50px;
+}
+
+button {
+    margin-top: 20px;
+    padding: 12px 20px;
+    border: none;
+    border-radius: 10px;
+    background: #e6c9a8;
+    cursor: pointer;
+    margin-left: 80px;
+}
