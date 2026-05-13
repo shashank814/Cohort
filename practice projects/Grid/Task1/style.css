@@ -1,0 +1,342 @@
+*{
+    margin: 0%;
+    padding: 0%;
+}
+
+html, body {
+    height: 100%;
+    width: 100%;
+}
+
+main {
+    height: 100%;
+    width: 100%;
+    background-color: black;
+    display: grid;
+    grid-template-columns: 1fr 1.2fr 1.2fr 1fr;
+    grid-template-rows: 1fr 1.5fr 1fr 1fr;
+    gap: 10px;
+    padding: 5px;
+
+    grid-template-areas: 
+    "top-left top-center1 top-center2 top-right"
+    "top-left center center top-right"
+    "center-left center center bottom-right"
+    "bottom-left bottom-left bottom-center bottom-right"
+    ;
+}
+
+/*----------------- TOP LEFT -------------------- */
+
+.top-left {
+    background-color: antiquewhite;
+    grid-area: top-left;
+    position: relative;
+}
+
+.top-left > img { 
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+}
+
+.icons {
+    position: absolute;
+    bottom: 15px;
+    left: 15px;
+
+    display: flex;
+    gap: 10px;
+}
+
+.icons > div {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    background: rgba(0,0,0,0.6);
+    padding: 6px 10px;
+    border-radius: 8px;
+}
+
+.icons p {
+    font-size: 12px;
+}
+
+.icons img {
+    width: 20px;
+    height: 20px;
+    background-color: yellow;
+    padding: 5px;
+    border-radius: 50%;
+}
+
+/*---------------- TOP CENTER1 --------------------*/
+
+.top-center1 {
+    background-color: rgb(214, 156, 7);
+    grid-area: top-center1;
+    border-radius: 10px;
+}
+
+.top-center1 .main {
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.top-center1 .p1 {
+    margin-top: 50px;
+    margin-left: 20px;
+}
+
+.top-center1 .first {
+    display: flex;
+    border: 1px solid black;
+    align-items: center;
+    justify-content: center;
+    margin: 15px;
+    gap: 10px;
+    background-color: black;
+    color: white;
+    padding: 10px;
+}
+
+.top-center1 .first img {
+    height: 20px;
+    width: 20px;
+    background-color: white;
+    padding: 2px;
+    border-radius: 50%;
+}
+
+/*------------------ TOP CENTER2 ----------------------*/
+
+.top-center2 {
+    background-color: white;
+    grid-area: top-center2;
+    border-radius: 10px;
+}
+
+.top-center2 .text{
+    margin: 20px;
+}
+
+.top-center2 .p1 {
+    margin-top: 20px;
+    font-size: 10px;
+}
+
+.top-center2 .p2 {
+    margin-top: 15px;
+    font-size: 20px;
+    font: bold;
+}
+
+.progress-bar {
+  width: 300px;
+  height: 20px;
+  background-color: #ddd;
+  border-radius: 20px;
+  display: flex;
+  overflow: hidden;
+  margin-left: 30px;
+}
+
+.segment {
+  height: 100%;
+}
+
+/* Individual segment widths + colors */
+.red {
+  width: 20%;
+  background-color: #d17b6d;
+}
+
+.yellow {
+  width: 25%;
+  background-color: #f4c542;
+}
+
+.gray {
+  width: 30%;
+  background-color: #e5e5e5;
+}
+
+.black {
+  width: 25%;
+  background-color: #000;
+}
+
+/*------------------- TOP RIGHT -----------------------*/
+
+.top-right {
+    background-color: white;
+    grid-area: top-right;
+    padding: 25px;
+    border-radius: 10px;
+}
+
+.top-right h1 {
+    padding-top: 10px;
+}
+
+.top-right .pink {
+    background-color: #f1a69b;
+    padding: 20px;
+    border-radius: 10px;
+    margin-top: 5px;
+    padding-top: 10px;
+}
+
+.top-right .pink div {
+    display: flex;
+    gap: 20px;
+}
+
+.top-right .pink .p1 {
+    margin-top: 30px;
+}
+
+.top-right .pink img {
+    height: 20px;
+    width: 20px;
+}
+
+/* CENTER LEFT */
+
+.center-left {
+    background-color: white;
+    grid-area: center-left;
+    border-radius: 10px;
+}
+
+.center-left h2 {
+    margin-top: 20px;
+    margin-left: 20px;
+}
+
+.center-left div {
+    display: flex;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    margin-left: 20px;
+    gap: 20px;
+}
+
+.center-left p {
+    font:  bold;
+    font-weight: 500;
+}
+
+.center-left div img {
+    height: 20px;
+    width: 20px;
+    background-color: yellow;
+    border-radius: 50%;
+    padding: 10px;
+}
+
+/* ---------------------- CENTER ---------------------- */
+
+.center {
+    background-color: rgb(246, 233, 209);
+    grid-area: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+    border-radius: 10px;
+}
+
+.center h1 {
+    font-size: 90px;
+}
+
+.center img {
+    height: 200px;
+    width: 200px;
+}
+
+/* --------------------- BOTTOM LEFT ---------------------- */
+.bottom-left {
+    background-color: #f1a69b;
+    grid-area: bottom-left;
+    display: flex;
+    gap: 50px;
+    border-radius: 10px;
+}
+
+.bottom-left .left {
+    padding: 10px;
+}
+
+.bottom-left .right h3 {
+    margin-top: 20px;
+}
+
+.bottom-left .right .text {
+    display: flex;
+    margin-top: 40px;
+}
+
+.bottom-left .right img {
+    height: 50px;
+    width: 50px;
+    border-radius: 50%;
+    margin-right: -10px;
+}
+
+/* ------------- BOTTOM CENTER --------------- */
+
+.bottom-center {
+    background-color: rgb(244, 199, 207);
+    grid-area: bottom-center;
+    position: relative;
+}
+
+.bottom-center .logo {
+    width: 300px;
+    height: 200px;
+    margin-left: 30px;
+}
+
+.bottom-center div img{
+    position: absolute;
+  
+    top: 10px;
+    bottom: 15px;
+    left: 85px;
+
+    display: flex;
+    gap: 10px;
+}
+
+/* ------------------ BOTTOM RIGHT ------------------- */
+
+.bottom-right {
+    background-color: #e19083;
+    grid-area: bottom-right;
+    border-radius: 10px;
+}
+
+.bottom-right div {
+    display: flex;
+    padding: 20px;
+    gap: 15px;
+}
+
+.bottom-right div img {
+    height: 30px;
+    width: 30px;
+    background-color: #f4c542;
+    padding: 10px;
+    border-radius: 50%;
+}
+
+.bottom-right div h2 {
+    margin-top: 10px;
+}
+
+.bottom-right .mobile{
+    height: 77%;
+    margin-left: 35px;
+}
