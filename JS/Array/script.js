@@ -620,9 +620,7 @@ var users = [
   { name: "B", age: 21 },
   { name: "C", age: 20 }
 ];
-
 let grouped = {};
-
 for (let user of users) {
   let key = user.age;
 
@@ -632,5 +630,107 @@ for (let user of users) {
 
   grouped[key].push(user);
 }
-
 console.log(grouped);
+
+let data = {
+    user: {
+        address: {
+            city: "Kolkata"
+        }
+    }
+};
+function hasProperty(obj, path) {
+    // safety check
+    if (!obj || typeof path !== "string") {
+        return false;
+    }
+
+    let keys = path.split('.');
+    let current = obj;
+
+    for (let key of keys) {
+        if (current && key in current) {
+            current = current[key]; // move deeper
+        } else {
+            return false; // property missing
+        }
+    }
+
+    return true; // all keys found
+}
+// Test cases
+console.log(hasProperty(data, "user.address.city"));     // true
+console.log(hasProperty(data, "user.address.pincode"));  // false
+console.log(hasProperty(data, "user.name"));             // false
+console.log(hasProperty(data));                          // false 
+
+
+var Obj1 = { 
+    name: "A", 
+    age: 20 
+}
+var Obj2 = { 
+    name: "A", 
+    age: 20 
+}
+console.log(
+  Object.keys(Obj1).join() === Object.keys(Obj2).join()
+); 
+
+
+var arr = [
+  {id:1,name:"A"},
+  {id:2,name:"B"},
+  {id:1,name:"A"}
+]
+function removeDuplicate(arr) {
+    let map = new Map;
+    for(let obj of arr) {
+        map.set(obj.id, obj);
+    }
+
+    return Array.from(map.values())
+}
+console.log(removeDuplicate(arr));
+
+// SHALLOW COPY -> If you change normal (non-nested) properties, it does NOT affect the original but If you change nested properties, it DOES affect the original.
+
+var original= {
+    name: "raj",
+    age: 20,
+    city: "kolkata",
+    interest: {
+        games: "cricket",
+        social: "insta",
+        goals: "money",
+    }
+}
+
+// var copy = {...original}
+var copy = original
+copy.age = 25;
+copy.interest.games = "football"
+console.log(original);
+console.log(copy);
+
+// DEEP COPY -> Any changes in copy does not affrct the original
+
+var original= {
+    name: "raj",
+    age: 20,
+    city: "kolkata",
+    interest: {
+        games: "cricket",
+        social: "insta",
+        goals: "money",
+    }
+}
+
+var str = JSON.stringify(original);
+var copy = JSON.parse(str);
+
+copy.age = 25;
+copy.interest.games = "football"
+
+console.log(original);
+console.log(copy);
