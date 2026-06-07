@@ -1,4 +1,4 @@
-// 'use strict'
+
 
 function showThis() {
     console.log(this);  // stric mode -> undefined : windows
@@ -287,3 +287,244 @@ var dog1 = new Dog("Alex")
 dog1.eat()
 dog1.barks()
 
+// Multi-Level Inheritance
+
+class Person {
+    constructor(name, hasAccount) {
+        this.name = name
+        this.hasAccount = true
+    }
+    userIdentity(hasAccount) {
+        if(hasAccount) {
+            console.log(`My name is ${this.name} and i am a account holder of this bank.`);
+        } else {
+            console.log("Not a verified account holder");
+        }
+    }
+}
+
+class Employee extends Person {
+    constructor(name, isVerified) {
+        super(name)
+        this.isVerified = isVerified
+    }
+    bankIdentity(isVerified) {
+        if(isVerified) {
+            console.log(`My name is ${this.name} and i am a account holder of this bank.`);
+        } else {
+            console.log("Not a verified employee");
+        }
+    }
+}
+
+class Manager extends Person, Employee {
+    constructor(name, isVerified) {
+        super(name)
+        this.isVerified = isVerified
+    }
+    bankIdentity(isVerified) {
+        if(isVerified) {
+            console.log(`My name is ${this.name} and i am a account holder of this bank.`);
+        } else {
+            console.log("Not a verified employee");
+        }
+    }
+}
+
+
+// Practice Session
+var prices = [100, 250, 500, 150, 700]
+var newArr = prices.filter(val => val > 300)
+console.log(newArr);
+
+
+var marks = [80, 90, 70, 85, 95];
+var total = marks.reduce(function(acc, curr) {
+    return acc + curr
+}, 0)
+let average = total / marks.length;
+console.log(average);
+
+
+var nums = [1,2,3,2,4,2,5,1,1,1];
+var count = {};
+// for(let i=0; i<nums.length; i++) {
+//     let num = nums[i];
+//     if(count[num]) {
+//         count[num] = count[num] + 1;
+//     } else {
+//         count[num] = 1
+//     }
+// }
+for (let num of nums) {
+    count[num] = (count[num] || 0) + 1;
+}
+console.log(count);
+
+
+var user = {
+    name: "roshan",
+    age: 20,
+    city: "Kolkata"
+}
+user.age = 21
+console.log(user);
+
+var userArr = Object.entries(user);
+for(let [key,val] of userArr) {
+    console.log(`${key}: ${val}`);
+}
+
+
+var employees = {
+    aman: 25000,
+    ritik: 50000,
+    priya: 45000
+}
+let maxSalary = -Infinity;
+let maxEmployee = "";
+for(let name in employees) {
+    if(employees[name] > maxSalary) {
+        maxSalary = employees[name]
+        maxEmployee = name
+    }
+}
+console.log(maxEmployee);
+
+
+function greet(name) {
+    console.log(`Hello ${name}`);
+}
+greet("roshan")
+
+
+function calculateDiscount(price) {
+    var discount = price - (price*10)/100;
+    console.log(discount);
+}
+calculateDiscount(500)
+
+
+function sum(...nums) { 
+    var total = nums.reduce((acc, val) => acc + val ,0)   
+    console.log(total);
+}
+sum(1,2,3)
+
+
+var users = [
+    {name: "roshan", age: 20},
+    {name: "aman", age: 16},
+    {name: "priya", age: 25},
+]
+
+function getAdults(users) {
+    return users.filter(function(val) {
+        return val.age > 18
+    })
+}
+console.log(getAdults(users));
+
+
+var cart = [
+    {name: "Mouse", price: 500, qty: 2},
+    {name: "Keyboard", price: 1000, qty: 1},
+    {name: "Monitor", price: 10000, qty: 1},
+]
+function getCartTotal(cart) {
+    var totalAmount = cart.reduce(function(acc, val) {
+        return acc + val.price * val.qty;
+    },0)
+    console.log(totalAmount);
+}
+getCartTotal(cart)
+
+
+var students = [
+    {name: "roshan", marks: [80, 90, 85]},
+    {name: "aman", marks: [50, 40, 60]},
+]
+function getStudentsReport(students) {
+    return students.map(function(student) {
+
+        var total = student.marks.reduce(function(acc, curr) {
+            return acc + curr
+        },0)
+
+        var average = total / student.marks.length;
+
+        let grade;
+        if(average >= 80) grade = "A";
+        else if(average >= 60) grade = "B";
+        else grade = "C";
+
+        return {
+            name: student.name,
+            average: average,
+            grade: grade
+        }
+    })
+}
+console.log(getStudentsReport(students));
+
+
+var books = []
+
+function addBook(title, author) {
+    let newBook = {
+        id: books.length + 1,
+        title: title,
+        author: author,
+        borrowed: false
+    };
+
+    books.push(newBook);
+}
+
+function borrowBook(id) {
+    let book = books.find(b => b.id === id);
+
+    if (!book) {
+        console.log("Book not found");
+        return;
+    }
+
+    if (book.borrowed) {
+        console.log("Book already borrowed");
+    } else {
+        book.borrowed = true;
+        console.log("Book borrowed successfully");
+    }
+}
+
+function returnBook(id) {
+    let book = books.find(b => b.id === id);
+
+    if (!book) {
+        console.log("Book not found");
+        return;
+    }
+
+    if (!book.borrowed) {
+        console.log("Book was not borrowed");
+    } else {
+        book.borrowed = false;
+        console.log("Book returned successfully");
+    }
+}
+
+function showAvailableBooks() {
+    let available = books.filter(b => !b.borrowed);
+    console.log(available);
+}
+
+addBook("Atomic Habits", "James Clear");
+addBook("Rich Dad Poor Dad", "Robert Kiyosaki");
+
+borrowBook(1);
+showAvailableBooks();
+
+returnBook(1);
+showAvailableBooks();
+
+console.log(books);
