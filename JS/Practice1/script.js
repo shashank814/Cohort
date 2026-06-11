@@ -380,8 +380,45 @@ var largestOfThree = (a, b, c) => {
 console.log(largestOfThree(10,50,20));
 
 function reverseString(str) {
-    var obj =  Object.entries(str).reverse()
-    var reversedObj = Object.fromEntries(obj)
-    return reversedObj
+    let result = ""
+    for(let i=str.length-1; i>=0; i--) {
+        result += str[i]
+    }
+    return result
 }
 console.log(reverseString("hello"));
+
+function mostWordsFound(sentences) {
+  // Write your logic here
+  let max = 0;
+  for(let val of sentences) {
+    let word = val.split(" ");
+    console.log(word);
+    
+    if(word.length > max) {
+        max = word.length;
+    }
+    
+  }
+  return max
+}
+console.log(mostWordsFound(["hii hello", "hello hii hii", "you will win"]));
+
+
+function sortSentence(str) {
+    let result = {};
+
+    for (let ch of str) {
+        if (ch === " ") continue; // ignore spaces
+        result[ch] = (result[ch] || 0) + 1;
+    }
+
+    // sort keys alphabetically
+    let keys = Object.keys(result).sort();
+    console.log(keys);
+    
+    for (let key of keys) {
+        console.log(key + ": " + result[key]);
+    }
+}
+console.log(sortSentence("sorting words in a sentence"));
