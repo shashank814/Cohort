@@ -1,3 +1,4 @@
+
 var prices= [100,250,500,150,700];
 var premium = prices.filter(val => val > 300)
 console.log(premium);
@@ -160,3 +161,227 @@ function capitalizeEnds(str) {
     return result.trim()    
 }
 console.log(capitalizeEnds("Hello bhai kaise ho"));
+
+var nums= [1,2,3,4,5];
+var last = nums.pop()
+nums.unshift(last)
+console.log(nums);
+
+var sales= ["Mouse","Keyboard","Mouse","Laptop","Mouse","Keyboard"];
+var count = {}
+for(let item of sales) {
+    if(count[item]) {
+        count[item]++
+    } else {
+        count[item] = 1
+    }
+}
+let maxProduct = "";
+let maxCount = 0;
+
+for (let key in count) {
+    if (count[key] > maxCount) {
+        maxCount = count[key];
+        maxProduct = key;
+    }
+}
+console.log(maxProduct);
+
+
+var user = {name:"Ritik",age:21,city:"Bhopal"};
+console.log(user.name);
+console.log(user.age = 25);
+user.country = "India"
+delete user.city
+console.log(user);
+console.log(Object.keys(user).includes("name"));   // true
+console.log(user.hasOwnProperty("name"));    // true
+console.log(Object.keys(user))
+console.log(Object.values(user))
+
+var newUser= {name:"Ritik",age:21,city:"Bhopal"};
+for(let [key, val] of Object.entries(newUser)) {
+    console.log(key + " : " + val);
+}
+
+var employee= {name:"Aman",salary:50000};
+var updateSal = Object.entries(employee).map(([key, val]) => {
+    if(key === "salary") {
+        return [key, val + (val*10)/100]
+    }
+    return [key, val]
+})
+var newObj = Object.fromEntries(updateSal)
+console.log(newObj);
+
+var user= {
+    name:"Ritik",
+    address: {
+        city:"Bhopal",
+        state:"MP"
+    }};
+console.log(user.address.city);
+
+var student= {name:"Priya",age:20,course:"BCA"};
+var {name: studentName, age: studentAge} = student
+console.log(studentName);
+console.log(studentAge);
+
+var user= {name:"Ritik",age:21};
+var address= {city:"Bhopal",state:"MP"};
+var newObj = {...user, ...address}
+console.log(newObj);
+
+var user= {name:"Ritik",age:21,city:"Bhopal",country:"India"};
+console.log(Object.keys(user).length);
+
+var employees = {aman:25000,ritik:50000,priya:45000};
+var max = 0;
+for(let val of Object.values(employees)) {
+    if(val > max) {
+        max = val
+    }
+}
+var result = {}
+
+for(let [key, val] of Object.entries(employees)) {
+    if(val === max) {
+        result = key;
+    }
+}
+console.log(result);
+
+var votes = {JavaScript:25,Python:30,Java:15,Cpp:10};
+var max = 0;
+for(let val of Object.values(votes)) {
+    if(val > max) {
+        max = val
+    }
+}
+var result = {}
+for(let [key, val] of Object.entries(votes)) {
+    if(val === max) {
+        result[key] = val
+    }
+}
+console.log(result);
+
+var countries= { India:"Delhi", Japan:"Tokyo", France:"Paris" };
+var transform = Object.entries(countries).map(([key, val]) => {
+    let temp = key
+    key = val
+    val = temp
+    return [key, val]
+})
+var change = Object.fromEntries(transform)
+console.log(change);
+
+var result = {}
+for(let val in countries) {
+    result[countries[val]] = val 
+}
+console.log(result);
+
+
+var marks= { math:90, science:80, english:85 };
+console.log(Object.values(marks).reduce((acc, val) => acc + val, 0));
+
+var user= { name:"Ritik", age:21 };
+    if("email" in user) {
+        console.log("exist");
+    } else {
+        user.email = "email not provided"
+    }
+console.log(user);
+
+
+var inventory= { mouse:25, keyboard:10, monitor:5, laptop:2 };
+var totalItem = 0;
+for(let val in inventory) {
+    if(val) {
+        totalItem++
+    }
+}
+console.log(totalItem);
+
+// Product with highest stock.
+var maxItem = {}
+var maxNum = 0;
+for(let [key,val] of Object.entries(inventory)) {
+    if(val > max) {
+        maxNum = val;
+        maxItem[key] = maxNum
+    }
+}
+
+console.log(maxItem);
+
+function characterFrequency(str) {
+    let result = {};
+
+    for (let ch of str) {
+        if (ch === " ") continue; // ignore spaces
+        result[ch] = (result[ch] || 0) + 1;
+    }
+
+    // sort keys alphabetically
+    let keys = Object.keys(result).sort();
+
+    for (let key of keys) {
+        console.log(key + ": " + result[key]);
+    }
+}
+console.log(characterFrequency("hello"));
+
+function isAnagram(s1, s2) {
+    if (s1.length !== s2.length) return false;
+
+    let freq = {};
+
+    for (let ch of s1) {
+        freq[ch] = (freq[ch] || 0) + 1;
+    }
+
+    for (let ch of s2) {
+        if (!freq[ch]) {
+            return false;
+        }
+        freq[ch]--;
+    }
+
+    return true;
+}
+console.log(isAnagram("arc", "car"));
+
+
+function greet(name = "Guest") {
+    console.log(`Hello ${name}`);
+}
+greet()
+
+function convertTemp(celsius) {
+    return (celsius*9/5)+32
+}
+console.log(convertTemp(38));
+
+var multiply = (a, b) => {
+    return a*b;
+}
+console.log(multiply(3,4));
+
+var discountCalculator = (price) => {
+    return price - (price*10)/100
+}
+console.log(discountCalculator(500));
+
+var largestOfThree = (a, b, c) => {
+    return Math.max(a, b, c)
+}
+console.log(largestOfThree(10,50,20));
+
+function reverseString(str) {
+    var obj =  Object.entries(str).reverse()
+    var reversedObj = Object.fromEntries(obj)
+    return reversedObj
+}
+console.log(reverseString("hello"));
