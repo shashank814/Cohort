@@ -1,12 +1,13 @@
 * {
     margin: 0;
     padding: 0;
-    box-sizing: border-box
+    box-sizing: border-box;
 }
 
 html, body {
     height: 100%;
     width: 100%;
+    background-color: black;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -15,29 +16,34 @@ html, body {
 main {
     height: 60%;
     width: 60%;
-    background-color: whiteSmoke;
+    padding: 20px;
+    background-color: whitesmoke;
     border-radius: 20px;
     display: flex;
     flex-direction: column;
     align-items: center;
+    gap: 30px;
 }
 
 input {
-    padding: 10px 10px;
-    outline: none;
+    padding: 10px;
     border: 1px solid gray;
     border-radius: 5px;
+    outline: none;
 }
 
-button {
-    padding: 10px 30px;
-    background-color: blue;
+#add {
+    padding: 10px 25px;
+    background-color: rgb(58, 151, 226);
     color: white;
     border: none;
     border-radius: 10px;
+    cursor: pointer;
+    margin-left: 10px;
 }
 
 .todo-list {
+    width: 70%;
     display: flex;
     flex-direction: column;
     gap: 10px;
@@ -45,27 +51,37 @@ button {
 
 .li {
     display: flex;
-    width: 100%;
-    border: 1px solid gray;
-    padding: 10px 15px;
-    border-radius: 10px;
-    background-color: white;
     justify-content: space-between;
     align-items: center;
+    padding: 12px;
+    border-radius: 10px;
+    background: white;
 }
 
 h3 {
-    font-size: 20px;
-    font-weight: 300;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+.checked {
+    text-decoration: line-through;
+    color: gray;
 }
 
 .btn {
-    padding: 5px 25px;
+    padding: 5px 15px;
     border: none;
-    border-radius: 10px;
+    border-radius: 8px;
+    margin-left: 5px;
+    cursor: pointer;
 }
 
 .edit {
-    background-color: lightgray;
+    background-color: goldenrod;
+    color: white;
+}
+
+.delete {
+    background-color: crimson;
     color: white;
 }
