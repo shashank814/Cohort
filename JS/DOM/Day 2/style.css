@@ -1,3 +1,30 @@
 *{
-    background: black;
+    background: #000000;
+    color: white;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html, body {
+    height: 100%;
+    width: 100%;
+}
+
+#boxes {
+    height: 60%;
+    width: 80%;
+    background-color: rgb(146, 143, 143);
+    border-radius: 20px;
+    padding: 20px;
+    margin-top: 40px;
+    margin-left: 10%;
+    display: flex;
+    gap: 20px;
+}
+
+.box {
+    height: 40%;
+    width: 30%;
+    background-color: red;;
 }
