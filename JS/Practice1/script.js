@@ -405,20 +405,103 @@ function mostWordsFound(sentences) {
 console.log(mostWordsFound(["hii hello", "hello hii hii", "you will win"]));
 
 
-function sortSentence(str) {
-    let result = {};
+// function sortSentence(str) {
+//     return str
+//            .split(" ")
+//            .sort((a,b) => a[0].localeCompare(b[0]))
+//            .join(" ")    
+// }
+// console.log(sortSentence("sorting words in a sentence"));
 
-    for (let ch of str) {
-        if (ch === " ") continue; // ignore spaces
-        result[ch] = (result[ch] || 0) + 1;
-    }
+// function sortByFirstChar(str) {
+//     return str
+//         .trim()
+//         .split(/\s+/)
+//         .sort((a, b) => a[0].localeCompare(b[0]))
+//         .join(" ");
+// }
+// console.log(sortByFirstChar("Agra at is mahal situated taj"));
 
-    // sort keys alphabetically
-    let keys = Object.keys(result).sort();
-    console.log(keys);
-    
-    for (let key of keys) {
-        console.log(key + ": " + result[key]);
-    }
+function sortSentenceCustom(sentence) {
+    return sentence
+        .split(" ")
+        .sort((a, b) => {
+            if (a[0] === a[0].toUpperCase() && b[0] !== b[0].toUpperCase()) {
+                return -1; // a is upperCase and b is lowerCase -> a come before b
+            }
+            if (a[0] !== a[0].toUpperCase() && b[0] === b[0].toUpperCase()) {
+                return 1; // a is lowerCase and b is upperCase -> a come after b
+            }
+            return a.localeCompare(b); // sort alphatbetically
+        })
+        .join(" ");
 }
-console.log(sortSentence("sorting words in a sentence"));
+
+console.log(sortSentenceCustom("taj mahal is situated at Agra"));
+
+
+function countAsterisks(s) {
+    let count = 0;
+    let lineCount = 0;
+    for(let ch of s) {
+        if(ch === "|") {
+            lineCount++
+        }
+        if(lineCount%2 === 0 && ch === "*") {
+            count++
+        }
+    }
+    return count
+}
+console.log(countAsterisks("yo|uar|e**|b|e***au|tifu|l"));
+
+
+
+function percentageLetter(str, letter) {
+    let count = 0;
+    for(let ch of str) {
+        if(ch === letter) {
+            count++
+        }
+    }
+    return Math.floor((count/str.length)*100)
+}
+console.log(percentageLetter("mississippi", "s"));
+
+
+let arr = [
+  [1, 2, 3, 1],
+  [4, 5, 6, 2],
+  [7, 8, 9, 3],
+  [10,11,12,4]
+]; 
+
+function diagonalSum(mat) {
+    // Write your logic here
+    let sum = 0;
+    let n = mat.length;
+    for(let i=0; i<mat.length; i++) {
+        sum += mat[i][i]
+
+        if(i !== n-1-i) {
+            sum += mat[i][n-1-i]
+        }
+    }
+    return sum
+}
+console.log(diagonalSum(arr));
+
+
+
+function transposeMatrix(matrix) {
+    for(let i=0; i<matrix.length; i++) {
+        for(let j=i; j<matrix.length; j++) {
+            let num = matrix[i][j]
+            matrix[i][j] = matrix[j][i]
+            matrix[j][i] = num
+        }
+    } 
+    return matrix   
+}
+
+console.log(transposeMatrix([[1,2,3], [4,5,6], [7,8,9]]));
