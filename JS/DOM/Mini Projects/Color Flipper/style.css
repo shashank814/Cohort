@@ -1,0 +1,41 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html, body {
+    height: 100%;
+    width: 100%;
+    background-color: black;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+main {
+    height: 70%;
+    width: 70%;
+    background-color: rgb(167, 139, 139);
+    border-radius: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+#circle {
+    height: 300px;
+    width: 300px;
+    background-color: transparent;
+    border: 5px solid black;
+    border-radius: 50%;
+}
+
+#btn {
+    border: 1px solid black;
+    padding: 10px 20px;
+    margin-top: 20px;
+    border-radius: 10px;
+    font-weight: bold;
+}
