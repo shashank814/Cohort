@@ -1,0 +1,126 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html, body {
+    height: 100%;
+    width: 100%;
+    /* background: black;
+    color: white; */
+}
+
+main {
+    height: 100%;
+    width: 100%;
+    padding: 30px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+nav {
+    height: 10%;
+    width: 100%;
+    padding: 15px;
+    background: rgb(37, 198, 223);
+    color: black;
+    border-radius: 10px;
+    display: flex;
+    justify-content: space-between;
+}
+
+h1 {
+    font-weight: 900;
+}
+
+#products {
+    height: 50%;
+    width: 30%;
+    display: flex;
+    gap: 20px;
+}
+
+.card {
+    height: 90%;
+    width: 60%;
+    padding: 10px 15px;
+    background-color: rgb(190, 177, 177);
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+}
+
+img {
+    height: 55%;
+    width: 100%;
+    object-fit: cover;
+    border-radius: 10px;
+}
+
+.text {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+}
+
+.btns {
+    margin-top: 10px;
+    display: flex;
+    justify-content: space-between;
+}
+
+button {
+    padding: 10px 20px;
+    border-radius: 10px;
+    border: 0.1px solid gray;
+    gap: 20px;
+}
+
+#update {
+    background: rgb(220, 127, 15);
+}
+
+#del {
+    background: rgb(231, 16, 16);
+}
+
+#formDiv {
+    height: 100%;
+    width: 100%;
+    background: rgba(0,0,0,0.455);
+    display: none;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    top: 0%;
+    left: 0%;
+}
+
+form {
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    background-color: white;
+    padding: 20px;
+    border-radius: 15px;
+}
+
+input {
+    border-radius: 10px;
+    border: 1px solid gray;
+    padding: 10px;
+    outline: none;
+}
+
+.top {
+    display: flex;
+    width: 50%;
+    color: white;
+    justify-content: space-between;
+    font-size: 40px;
+    cursor: pointer;
+}
