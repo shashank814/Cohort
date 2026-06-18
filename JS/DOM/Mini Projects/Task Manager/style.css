@@ -1,0 +1,117 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html, body {
+    height: 100%;
+    width: 100%;
+    padding: 10px;
+}
+
+nav {
+    height: 5%;
+    width: 100%;
+    padding: 20px;
+    background-color: rgb(33, 159, 221);
+    display: flex;
+    justify-content: space-between;
+    border-radius: 10px;
+}
+
+.myTasks {
+    display: flex;
+    gap: 10px;
+}
+
+.newTask {
+    display: flex;
+    gap: 5px;
+    cursor: pointer;
+}
+
+h1 {
+    font-weight: 400;
+}
+
+i {
+    font-size: 35px;
+}
+
+#taskForm {
+    height: 60%;
+    width: 40%;
+    position: absolute;
+    left: 30%;
+    top: 30%;
+    display: none;
+    flex-direction: column;
+    gap: 20px;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    background-color: rgba(0, 0, 0, 0.359);
+    color: white;
+    padding: 50px 20px;
+    border-radius: 20px;
+}
+
+.close {
+    display: flex;
+    justify-content: space-between;
+    cursor: pointer;
+}
+
+input {
+    padding: 10px 20px;
+    font-size: 20px;
+    border-radius: 10px;
+    border: 1px solid gray;
+    outline: none;
+}
+
+.cat-opt {
+    display: flex;
+    gap: 20px;
+}
+
+label {
+    padding: 10px 15px;
+    font-size: 20px;
+    border-radius: 10px;
+    border: 1px solid gray;
+    outline: none;
+    color: black;
+}
+
+select {
+    padding: 10px 15px;
+    border-radius: 10px;
+    border: 0.1px solid gray;
+}
+
+button {
+    padding: 15px 0px;
+    font-size: 20px;
+    font-weight: 600;
+    border-radius: 10px;
+    border: 1px solid gray;
+    outline: none;
+}
+
+#tasks {
+    height: 10%;
+    width: 100%;
+    margin-top: 20px;
+    padding: 10px 20px;
+}
+
+li {
+    padding: 10px;
+    font-size: 20px;
+    font-weight: 300;
+}
