@@ -27,6 +27,12 @@ nav {
 
 .newTask {
     display: flex;
+    gap: 100px;
+    cursor: pointer;
+}
+
+.newTask div {
+    display: flex;
     gap: 5px;
     cursor: pointer;
 }
@@ -48,6 +54,7 @@ i {
     display: none;
     flex-direction: column;
     gap: 20px;
+    padding: 0px 20px;
 }
 
 form {
@@ -94,7 +101,7 @@ select {
     border: 0.1px solid gray;
 }
 
-button {
+#add {
     padding: 15px 0px;
     font-size: 20px;
     font-weight: 600;
@@ -110,8 +117,77 @@ button {
     padding: 10px 20px;
 }
 
-li {
-    padding: 10px;
+.heading {
+    background-color: rgb(24, 132, 96);
+    padding: 20px;
+    border-radius: 10px;
+    outline: none;
+    border: 1px solid gray;
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 20px;
+}
+
+h3 {
+    font-size: 30px;
+    font-weight: 400;
+}
+
+p {
+    margin-top: 5px;
+    margin-left: 20px;
+}
+
+#btns {
+    display: flex;
+    gap: 20px;
+}
+
+button {
+    padding: 5px 20px;
+    font-weight: 400;
     font-size: 20px;
-    font-weight: 300;
+    border-radius: 10px;
+    outline: none;
+    border: 1px solid gray;
+    cursor: pointer;
+}
+
+.update {
+    background-color: rgb(246, 198, 76);
+}
+
+.comp {
+    background-color: rgb(53, 241, 53);
+}
+
+.del {
+    background-color: rgb(250, 49, 49);
+}
+
+.dark {
+    background-color: black;
+    color: white;
+}
+
+.white {
+    background-color: white;
+    color: black;
+}
+
+
+/* DARK MODE FORM FIX */
+body.dark #taskForm {
+    background-color: #f5ecec;
+    color: white;
+}
+
+body.dark #taskForm .close{
+    color: black;
+}
+
+/* button */
+body.dark #taskForm button {
+    background-color: #555;
+    color: white;
 }

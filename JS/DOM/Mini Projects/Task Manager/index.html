@@ -19,8 +19,13 @@
             </div>
 
             <div class="newTask">
-                <i class="ri-add-fill"></i>
-                <h1 id="new-task">New Task</h1>
+                <div>
+                    <i class="ri-add-fill"></i>
+                    <h1 id="new-task">New Task</h1>
+                </div>
+                <div>
+                    <i id="dark" class="ri-sun-line"></i>
+                </div>
             </div>
         </nav>
     </main>
@@ -32,7 +37,7 @@
         </div>
 
         <form action="">
-        <input type="text" placeholder="Task Title">
+        <input id="taskInput" type="text" placeholder="Task Title">
         <div class="cat-opt">
             <label for="category">Select Category:</label>
 
@@ -51,13 +56,15 @@
     </div>
 
     <div id="tasks">
-        <ul>
+        <!-- <ul>
             <li>First Task</li>
-            <li>Second Task</li>
-        </ul>
+            <p>Category</p>
+        </ul> -->
     </div>
 
     <script src="script.js"></script>
 </body>
 
 </html>
+
+
