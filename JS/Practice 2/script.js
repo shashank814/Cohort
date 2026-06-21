@@ -256,3 +256,70 @@ emitter.emit('itemAdded', 'apple');   // logs: Added: apple
 
 emitter.off('itemAdded', logAdd);
 emitter.emit('itemAdded', 'banana');  // nothing logs — listener removed
+
+// 17.
+function memoize(fn) {
+  const cache = {}; // this is the "notebook"
+
+  return function (...args) {
+    const key = JSON.stringify(args); // turn arguments into a string to use as a label
+
+    if (cache[key] !== undefined) {
+      console.log("Fetching from cache:", key);
+      return cache[key]; // already solved before, just return it
+    }
+
+    console.log("Calculating result for:", key);
+    const result = fn(...args); // actually run the slow function
+    cache[key] = result;        // write the answer in the notebook
+    return result;
+  };
+}
+function slowSquare(n) {
+  console.log("Doing heavy work...");
+  for (let i = 0; i < 1000000000; i++) {} // pretend this takes time
+  return n * n;
+}
+
+const fastSquare = memoize(slowSquare);
+
+console.log(fastSquare(5)); // "Doing heavy work..." -> 25
+console.log(fastSquare(5)); // "Fetching from cache" -> 25 (instant!)
+console.log(fastSquare(6)); // "Doing heavy work..." -> 36
+
+// 18.
+// Retry Function
+async function retry(asyncFn, attempts) {
+  for (let i = 1; i <= attempts; i++) {
+    try {
+      const result = await asyncFn();
+      return result; // success → stop retrying
+    } catch (error) {
+      console.log(`Attempt ${i} failed`);
+
+      if (i === attempts) {
+        throw new Error("All attempts failed");
+      }
+    }
+  }
+}
+
+// Fake async function (fails first 2 times, then succeeds)
+let count = 0;
+
+async function fakeApi() {
+  count++;
+
+  if (count < 3) {
+    throw new Error("API Failed");
+  } 
+
+  return "Success 🎉";
+}
+
+// Test
+retry(fakeApi, 5)
+  .then(res => console.log("Result:", res))
+  .catch(err => console.log(err.message));
+
+
