@@ -1,9 +1,8 @@
 import React, { useState } from 'react'
 
-const Login = ({setToggle}) => {
+const Login = ({setToggle, setUsers}) => {
 
     const [formData, setFormData] = useState({})
-    const [users, setUsers] = useState([])
 
     const handleChange = (e) => {
         let {name, value} = e.target;
@@ -12,7 +11,7 @@ const Login = ({setToggle}) => {
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        setUsers([...users, formData]) 
+        setUsers((prev) => [...prev, formData]) 
         setFormData({
           name: "",
           email: "",
