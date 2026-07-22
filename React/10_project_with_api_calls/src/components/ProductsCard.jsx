@@ -1,13 +1,15 @@
-import React from "react";
+import React, { useContext } from "react";
+import { MyStore } from "../context/MyContext";
 
-const ProductsCard = ({ product, setCartItems }) => {
+const ProductsCard = ({ product, isInCart }) => {
+  let { setCartItems, increaseQuantity, decreaseQuantity } = useContext(MyStore);
+
   const addCart = () => {
-    setCartItems((prev) => [...prev, product])
-    alert("Product added into cart")
-  }
+    setCartItems((prev) => [...prev, {...product, quantity: 1}]);
+    alert("Product added into cart");
+  };
   return (
     <div className="w-72 bg-white rounded-2xl shadow-md hover:shadow-xl transition duration-300 p-4">
-      
       {/* Image */}
       <div className="h-52 flex items-center justify-center overflow-hidden">
         <img
@@ -18,9 +20,7 @@ const ProductsCard = ({ product, setCartItems }) => {
       </div>
 
       {/* Category */}
-      <p className="text-xs text-gray-500 mt-3 uppercase">
-        {product.category}
-      </p>
+      <p className="text-xs text-gray-500 mt-3 uppercase">{product.category}</p>
 
       {/* Title */}
       <h2 className="text-sm font-semibold mt-1 line-clamp-2">
@@ -38,16 +38,21 @@ const ProductsCard = ({ product, setCartItems }) => {
       </div>
 
       {/* Price */}
-      <div className="mt-3 flex items-center justify-between">
-        <p className="text-lg font-bold text-gray-800">
-          ₹{product.price}
-        </p>
+      <div className="mt-3 flex items-center justify-between gap-5">
+        <p className="text-lg font-bold text-gray-800">₹{product.price}</p>
 
-        <button 
-        onClick={addCart}
-        className="bg-black text-white text-xs px-4 py-2 rounded-lg hover:bg-gray-800 transition">
-          Add to Cart
-        </button>
+        {isInCart ? (
+          <button className="w-full bg-gray-600 flex items-center text-black justify-center gap-5 rounded-xl">
+            <span onClick={() => decreaseQuantity(product.id)} className="text-4xl">-</span> <span className="text-4xl">{isInCart.quantity}</span> <span onClick={() => increaseQuantity(product.id)} className="text-4xl">+</span>
+          </button>
+        ) : (
+          <button
+            onClick={addCart}
+            className="bg-black text-white text-xs px-4 py-2 rounded-lg hover:bg-gray-800 transition"
+          >
+            Add to Cart
+          </button>
+        )}
       </div>
     </div>
   );

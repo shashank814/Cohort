@@ -1,7 +1,11 @@
-import React from "react";
+import React, { useContext } from "react";
 import { Trash2 } from "lucide-react";
+import { MyStore } from "../context/MyContext";
 
-const CartCard = ({ product, onIncrease, onDecrease, onRemove }) => {
+const CartCard = ({ product, onIncrease, onDecrease, onRemove, isInCart }) => {
+
+  let { setCartItems, increaseQuantity, decreaseQuantity } = useContext(MyStore);
+
   return (
     <div className="flex items-center gap-4 p-4 border rounded-xl shadow-sm bg-white hover:shadow-md transition">
 
@@ -23,8 +27,9 @@ const CartCard = ({ product, onIncrease, onDecrease, onRemove }) => {
 
         {/* Quantity Controls */}
         <div className="flex items-center gap-3 mt-3">
+          
           <button
-            onClick={() => onDecrease(product.id)}
+            onClick={() => decreaseQuantity(product.id)}
             className="px-3 py-1 bg-gray-200 rounded hover:bg-gray-300"
           >
             -
@@ -33,7 +38,7 @@ const CartCard = ({ product, onIncrease, onDecrease, onRemove }) => {
           <span className="font-medium">{product.quantity}</span>
 
           <button
-            onClick={() => onIncrease(product.id)}
+            onClick={() => increaseQuantity(product.id)}
             className="px-3 py-1 bg-gray-200 rounded hover:bg-gray-300"
           >
             +
