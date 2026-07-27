@@ -1,25 +1,30 @@
 import { createContext, useState } from "react";
 
-export const Auth = createContext()
+export const Auth = createContext();
 
-export const AuthProvider = ({children}) => {
+export const AuthProvider = ({ children }) => {
+  const [registerUsers, setRegisterUsers] = useState(
+    JSON.parse(localStorage.getItem("registeredUsers")) || [],
+  );
 
-    const [registerUsers, setRegisterUsers] = useState(JSON.parselocalStorage.getItem("registeredUsers")) || []
+  const [loggedInUser, setLoggedInUser] = useState(() => {
+    const data = localStorage.getItem("loggedInUser");
+    return data ? JSON.parse(data) : null;
+  });
 
-    const [loggedInUser, setLoggedInUser] = useState(
-        JSON.parse(localStorage.getItem("loggedInUser"))
-    )
+  console.log("registered user -> ", registerUsers);
+  console.log("loggedIn user -> ", loggedInUser);
 
-    console.log("registered user -> ", registerUsers);
-    console.log("loggedIn user -> ", loggedInUser);
-    
-
-    return <Auth.Provider value={{
-        registerUsers, 
-        setRegisterUsers, 
+  return (
+    <Auth.Provider
+      value={{
+        registerUsers,
+        setRegisterUsers,
         loggedInUser,
-        setLoggedInUser
-        }}>
-        {children}
+        setLoggedInUser,
+      }}
+    >
+      {children}
     </Auth.Provider>
-}
+  );
+};

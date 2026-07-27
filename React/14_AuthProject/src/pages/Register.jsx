@@ -6,7 +6,7 @@ import { Auth } from "../context/MyContext";
 
 const Register = () => {
 
-  let { setRegisterUsers, registerUsers } = useContext(Auth)
+  let { setRegisterUsers, registerUsers, setLoggedInUser } = useContext(Auth)
 
   let {
     register, 
@@ -21,7 +21,10 @@ const Register = () => {
     let arr = [...registerUsers, data]
     setRegisterUsers()
     alert("User registered successfully")
+    setLoggedInUser(data)
+    localStorage.setItem("loggedInUser", JSON.stringify(data))
     localStorage.setItem("registeredUsers", JSON.stringify(arr)) 
+    navigate('/main')
     reset()
   }
 

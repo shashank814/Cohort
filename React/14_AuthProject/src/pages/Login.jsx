@@ -2,6 +2,7 @@ import React, { useContext } from "react";
 import { useForm } from "react-hook-form";
 import { data, useNavigate } from "react-router"
 import { Auth } from "../context/MyContext";
+import { toast } from "react-toastify";
 
 const Login = () => {
 
@@ -22,11 +23,13 @@ const Login = () => {
       })
 
       if(!user) {
-        alert("user not found or invalid credentials")
+        toast.error("user not found or invalid credentials")
+        reset()
         return
       }
       setLoggedInUser(user)
       localStorage.setItem("loggedInUser", JSON.stringify(user))
+      toast.success("user loggedin")
 
       reset()
 

@@ -4,6 +4,7 @@ import AuthLayout from '../layout/AuthLayout'
 import Login from '../pages/Login'
 import Register from '../pages/Register'
 import MainLayout from '../layout/MainLayout'
+import ProtectedRoute from './ProtectedRoute'
 
 const AppRoute = () => {
 
@@ -24,7 +25,13 @@ const AppRoute = () => {
         },
         {
             path: "/main",
-            element: <MainLayout />
+            element: <ProtectedRoute />,
+            children: [
+                {
+                    path: "",
+                    element: <MainLayout />
+                }
+            ]
         }
     ])
   return <RouterProvider router={router} />
