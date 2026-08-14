@@ -12,6 +12,7 @@ import CartPage from '../features/cart/ui/pages/CartPage'
 import OrderPage from '../features/orders/ui/pages/OrderPage'
 import { useDispatch } from 'react-redux'
 import { hydrateUserAction } from '../features/auth/state/authAction'
+import AboutPage from '../shared/ui/pages/AboutPage'
 
 const AppRoutes = () => {
 
@@ -72,6 +73,10 @@ const AppRoutes = () => {
                         {
                             path: "order",
                             element: <OrderPage />,
+                        },
+                        {
+                            path: "about",
+                            element: <AboutPage />,
                         },
                     ]
                 }
