@@ -39,13 +39,13 @@ console.log(createAdmin({
 
 // Type Aliases
 
-type value = string | number | null;
+type value = string | number | null; // union
 
 let a: value = "Hello";
 let b: value = 10;
 let c: value = null;
 
-function displayValue(val: value) {
+function displayValue(val: value) {   
     return val;
 }
 console.log(displayValue("hello"))
