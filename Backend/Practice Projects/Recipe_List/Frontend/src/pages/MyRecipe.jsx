@@ -11,10 +11,7 @@ const MyRecipe = () => {
         {
           withCredentials: true, // ✅ send cookie
         }
-      );
-
-      console.log(res.data);
-      
+      );      
 
       setRecipes(res.data.recipes || []);
     } catch (err) {
@@ -25,6 +22,23 @@ const MyRecipe = () => {
   useEffect(() => {
     myRecipe();
   }, []);
+
+  const deleteRecipe = async (id) => {
+    try {
+      let res = await axios.delete(`http://localhost:3000/api/recipe/delete/${id}`,
+        {
+          withCredentials: true,
+        }
+      )
+      myRecipe()
+    } catch (error) {
+      console.log("error in delete recipe", error)
+    }
+  }
+
+  let updateRecipe = async () => {
+    console.log(recipes.item);
+  }
 
   return (
     <div className="min-h-screen bg-gray-100 p-6">
@@ -72,11 +86,11 @@ const MyRecipe = () => {
                 {/* Buttons */}
                 <div className="flex justify-between">
                   
-                  <button className="bg-blue-500 text-white px-3 py-1 rounded-lg hover:bg-blue-600">
+                  <button onClick={() => updateRecipe(item._id)} className="bg-blue-500 text-white px-3 py-1 rounded-lg hover:bg-blue-600">
                     Edit
                   </button>
 
-                  <button className="bg-red-500 text-white px-3 py-1 rounded-lg hover:bg-red-600">
+                  <button onClick={() => deleteRecipe(item._id)} className="bg-red-500 text-white px-3 py-1 rounded-lg hover:bg-red-600">
                     Delete
                   </button>
 
