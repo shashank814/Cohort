@@ -4,16 +4,21 @@ const userSchema = new mongoose.Schema({
     name: {
         type: String,
         required: true,
-        minLenght: 3,
+        minLenght: [3, "name must be at least 3 characters long"],
         maxLength: 20,
     },
     email: {
         type: String,
         required: true,
+        unique: true,
+        match: /^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/
     },
     password: {
         type: String,
         required: true,
+    },
+    refreshToken: {
+        type: String
     }
 })
 
