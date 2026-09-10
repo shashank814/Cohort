@@ -2,6 +2,7 @@ import { useContext } from "react";
 import { useForm } from "react-hook-form";
 import { useNavigate } from "react-router";
 import { Auth } from "../context/MyContext";
+import { toast } from "react-toastify";
 
 export const useAuth = () => {
 
@@ -35,7 +36,7 @@ export const useAuth = () => {
 
   let registerFormSubmit = (data) => {
     let arr = [...registerUsers, data]
-    setRegisterUsers()
+    setRegisterUsers(arr)
     alert("User registered successfully")
     setLoggedInUser(data)
     localStorage.setItem("loggedInUser", JSON.stringify(data))
