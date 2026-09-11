@@ -31,6 +31,7 @@ router.post("/register", async (req, res) => {
     })
 
     const { accessToken, refreshToken } = generateToken({ userId: user._id })
+    
 
     res.cookie("refreshToken", refreshToken, {
         httpOnly: true,  // this means only server side can access cookie-data not client side
