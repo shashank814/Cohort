@@ -14,3 +14,15 @@ const About = ({users}) => {
 export default React.memo(About, (prevProps, nextProps) => {
   return prevProps.users.id === nextProps.users.id;
 })
+
+/**
+ * prevProps -> old props
+ * nextProps -> new props
+ *
+ * Return true → do NOT re-render
+ * Return false → re-render
+ *
+ * Example:
+ * return prevProps.user.id === nextProps.user.id
+ * → Component re-renders only when user id changes
+ */
