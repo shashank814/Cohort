@@ -1,47 +1,50 @@
 import React, { useState } from 'react'
-import { useAuth } from '../context/AuthContext'
+import useApi from '../shared/useApi'
+import { useAuthContext } from '../context/AuthProvider'
 import { useNavigate } from 'react-router'
-import useApi from '../shared/api'
 
 const Register = () => {
 
-    const auth = useAuth()
-    const navigate = useNavigate()
-    const api = useApi()
-    const [form, setForm] = useState({ name: "", email: "", password: "" })
-    const [error, setError] = useState(null)
+  const api = useApi()
+  const authContext = useAuthContext()
 
-    const handleChange = (e) => {
-        setForm({ ...form, [ e.target.name ]: e.target.value })
-    }
+  const navigate = useNavigate()
 
-    const handleSubmit = async (e) => {
-        e.preventDefault()
-        setError(null)
-        try {
+  const [name, setName] = useState("")
+  const [email, setEmail] = useState("")
+  const [password, setPassword] = useState("")
 
-            const response = await api.post("/auth/register", form)
+  async function handleSubmit(e) {
+    e.preventDefault()
 
-            console.log(response.data);
-            
-            
-        } catch (err) {
-            setError(err?.message || "Registration Failed")
-        }
-    }
+    const res = await api.post("/auth/register", {
+      name, email, password
+    })
+
+    console.log(res.data);
+    
+    authContext.setAccessToken(res.data.accessToken)
+    authContext.setUser(res.data.data.user)
+
+    navigate("/profile")
+  }
 
   return (
-    <div className=''>
+    <main>
       <form onSubmit={handleSubmit}>
-        <input name='name' placeholder='Name' value={form.name} onChange={handleChange} />
 
-        <input name='email' placeholder='Email' value={form.email} onChange={handleChange} />
-        <input name='password' placeholder='Password' value={form.password} onChange={handleChange} />
+        <input type="text" value={name} onChange={(e) => setName(e.target.value)} placeholder='Name'/>
 
-        <button type='submit'>Register</button>
+        <input type="email" value={email} onChange={(e) => setEmail(e.target.value)} placeholder='Email'/>
+
+        <input type="password" value={password} onChange={(e) => setPassword(e.target.value)} placeholder='Password'/>
+
+        <button>
+          Register
+        </button>
+
       </form>
-      {error && <p>{error}</p>}
-    </div>
+    </main>
   )
 }
 

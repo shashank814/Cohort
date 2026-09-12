@@ -1,11 +1,11 @@
 import { createBrowserRouter } from "react-router"
-import Register from "../pages/register"
 import Profile from "../pages/Profile"
+import Register from "../pages/Register"
 
 const router = createBrowserRouter([
     {
         path: "/",
-        element: <Register />
+        element: <Register />,
     },
     {
         path: "/profile",
