@@ -33,8 +33,9 @@ export const useAuth = () => {
     console.log(data);
     let user = registerUsers.find((val) => {
         return val.email === data.email && val.password === data.password;
+    })
 
-        if(!user) {
+    if(!user) {
             toast.error("Invalid Something...")
             return
         }
@@ -43,7 +44,6 @@ export const useAuth = () => {
         localStorage.setItem("loggedInUser", JSON.stringify(user))
         toast.success("user logged in")
         reset()
-    })
   };
 
   return {
