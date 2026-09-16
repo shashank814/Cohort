@@ -49,8 +49,8 @@ app.post("/api/auth/login", async(req, res) => {
 
     const { email, password } = req.body;
 
-    const user = await userModel.create({
-        name, email, password: hash
+    const user = await userModel.findOne({
+        email
     })
 
     const isValid = await bcrypt.compare(password, user.password)
