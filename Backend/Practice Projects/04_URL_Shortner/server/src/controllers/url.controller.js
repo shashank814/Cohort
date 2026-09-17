@@ -1,5 +1,4 @@
 import urlModel from "../models/url.model.js";
-import router from "../routes/url.routes.js";
 import generateCode from "../utils/generateCode.js";
 
 
