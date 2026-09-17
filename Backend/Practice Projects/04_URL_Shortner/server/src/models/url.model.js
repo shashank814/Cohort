@@ -1,21 +1,19 @@
-import mongoose from "mongoose"
+import mongoose from "mongoose";
 
 const urlSchema = new mongoose.Schema({
     originalUrl: {
         type: String,
-        required: true
+        required: true,
     },
     shortCode: {
         type: String,
-        required: true 
+        required: true
     },
     clicks: {
         type: Number,
         default: 0
     }
-}, {
-    timestamps: true
-})
+}, {timestamps: true})
 
 const urlModel = mongoose.model("urls", urlSchema)
 
