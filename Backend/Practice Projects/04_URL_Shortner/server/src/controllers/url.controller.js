@@ -46,7 +46,7 @@ export async function getUrls(req, res) {
     })
 }
 
-export async function newUrl(req, res) {
+export async function shortCodeUrl(req, res) {
     
     const { code } = req.params
 
@@ -68,4 +68,25 @@ export async function newUrl(req, res) {
 
     console.log(url.clicks);
     
+};
+
+export async function deleteUrl(req, res) {
+    
+    const { id } = req.params
+
+    const url = await urlModel.findById(id)
+
+    if(!id) {
+        return res.status(404).json({
+            message: "URL not found"
+        })
+    }
+
+    await urlModel.findByIdAndDelete(id)
+
+    return res.status(200).json({
+        message: "URL deleted successfully"
+    })
+
+
 }
