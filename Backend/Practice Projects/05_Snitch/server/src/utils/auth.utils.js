@@ -5,7 +5,7 @@ import jwt from "jsonwebtoken"
 export function createAccessToken({ userId, role }) {
     const accessToken = jwt.sign({
         userId, role
-    }, config.ACCESS_TOKEN_SECRET, { expiresIn: "15MIN"})
+    }, config.ACCESS_TOKEN_SECRET, { expiresIn: "15m"})
 
     return accessToken
 }
@@ -13,8 +13,15 @@ export function createAccessToken({ userId, role }) {
 export function createRefreshToken({ userId, role }) {
     const refreshToken = jwt.sign({
         userId, role
-    }, config.REFRESH_TOKEN_SECRET, { expiresIn: "7dDays"})
+    }, config.REFRESH_TOKEN_SECRET, { expiresIn: "7d"})
 
     return refreshToken
 }
 
+export function readRefreshToken(refreshToken) {
+    return jwt.verify(refreshToken, config.REFRESH_TOKEN_SECRET)
+}
+
+export function readAccessToken(accessToken) {
+    return jwt.verify(accessToken, config.ACCESS_TOKEN_SECRET)
+}
