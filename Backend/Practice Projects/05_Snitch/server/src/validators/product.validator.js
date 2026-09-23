@@ -37,19 +37,23 @@ export const createProductValidator = [
     .exists()
     .withMessage("Currency amount is required")
     .bail()
-    .isFloat()
-    .withMessage("Currency must be a string value")
-    .bail()
+    .isString().withMessage("Currency must be a string value")
     .isIn(["INR", "USD"])
     .withMessage("Currency either be INR or USD"),
 
-  body("sizes.0")
-    .exists().withMessage("Size is required").bail()
-    .isFloat()
-    .withMessage("Size must be a string value")
-    .bail()
-    .isIn([ "XS", "S", "M", "L", "XL", "XXL" ]).withMessage("Size must be one of these")
-    ,
+  body("sizes")
+    .exists().withMessage("Sizes are required").bail()
+    .isArray()
+    .withMessage("Sizes must be an array of object"),
+  
+  body("sizes.*.sizes")
+    .exists().withMessage("Size must be present in every entry of sizes array").bail()
+    .isIn([ "XS", "S", "M", "L", "XL", "XXL" ]).withMessage("Size can be XS, S, M, L, XL, XXL"),
+
+  body("sizes.*.stock")
+    .exists().withMessage("stock must be present in every entry of the sizes array").bail()
+    .isInt({ min: 0 }).withMessage("Stock must be a integer value").bail()
+  ,
 
   (req, res, next) => {
     const errors = validationResult(req);
