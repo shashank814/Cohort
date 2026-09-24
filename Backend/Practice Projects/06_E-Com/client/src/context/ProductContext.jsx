@@ -17,7 +17,7 @@ export const ProductContextProvider = ({ children }) => {
   const getAllProducts = async () => {
     try {
       const res = await axios.get(
-        "http://localhost:5173/api/products/get-products",
+        "http://localhost:3000/api/products/get-products",
       );
 
       setAllProducts(res.data.products);
@@ -43,7 +43,7 @@ export const ProductContextProvider = ({ children }) => {
 
     try {
       const res = await axios.post(
-        "http://localhost:5173/api/products/add-product",
+        "http://localhost:3000/api/products/add-product",
         formData,
         {
           headers: {
@@ -62,7 +62,7 @@ export const ProductContextProvider = ({ children }) => {
   const singleProduct = async (id) => {
     try {
       const res = await axios.get(
-        `http://localhost:5173/api/products/product/${id}`,
+        `http://localhost:3000/api/products/product/${id}`,
       );
       setProduct(res.data.product);
     } catch (error) {
@@ -85,7 +85,7 @@ export const ProductContextProvider = ({ children }) => {
 
     try {
       const res = await axios.patch(
-        `http://localhost:5173/api/products/update/${id}`,
+        `http://localhost:3000/api/products/update/${id}`,
         formData,
         {
           headers: {
@@ -103,7 +103,7 @@ export const ProductContextProvider = ({ children }) => {
   const deleteProduct = async (id) => {
     try {
       const res = await axios.delete(
-        `http://localhost:5173/api/products/delete/${id}`, {
+        `http://localhost:3000/api/products/delete/${id}`, {
           headers: {
             Authorization: `Bearer ${parsed}`
           }

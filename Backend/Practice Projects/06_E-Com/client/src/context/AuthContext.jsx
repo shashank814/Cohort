@@ -12,7 +12,7 @@ export const AuthContextProvider = ({ children }) => {
   const loginUser = async (data) => {
     try {
       const res = await axios.post(
-        "http://localhost:5173/api/auth/login",
+        "http://localhost:3000/api/auth/login",
         data,
       );
       localStorage.setItem(
@@ -31,7 +31,7 @@ export const AuthContextProvider = ({ children }) => {
   const registerUser = async (data) => {
     try {
       const res = await axios.post(
-        "http://localhost:5173/api/auth/register",
+        "http://localhost:3000/api/auth/register",
         data,
       );
       localStorage.setItem(
@@ -50,7 +50,7 @@ export const AuthContextProvider = ({ children }) => {
   const logoutUser = async () => {
   try {
     await axios.post(
-      "http://localhost:5173/api/auth/logout",
+      "http://localhost:3000/api/auth/logout",
       {}, 
       {
         headers: {
