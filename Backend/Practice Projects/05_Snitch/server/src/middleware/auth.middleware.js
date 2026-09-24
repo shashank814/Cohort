@@ -1,6 +1,6 @@
 import { readAccessToken } from "../utils/auth.utils.js";
 
-export function authneticate(req, res, next) {
+export function authenticate(req, res, next) {
   const accessToken = req.headers.authorization?.split(" ")[1];
 
   if (!accessToken) {

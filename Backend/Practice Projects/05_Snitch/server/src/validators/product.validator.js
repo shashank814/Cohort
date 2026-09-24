@@ -46,7 +46,7 @@ export const createProductValidator = [
     .isArray()
     .withMessage("Sizes must be an array of object"),
   
-  body("sizes.*.sizes")
+  body("sizes.*.size")
     .exists().withMessage("Size must be present in every entry of sizes array").bail()
     .isIn([ "XS", "S", "M", "L", "XL", "XXL" ]).withMessage("Size can be XS, S, M, L, XL, XXL"),
 
