@@ -1,8 +1,8 @@
 import { Router } from "express";
-import { authenticate } from "../middleware/auth.middleware.js";
-import { createProduct, listAllProducts } from "../controllers/product.controller.js";
+import { authenticate, authenticateSeller } from "../middleware/auth.middleware.js";
+import { createProduct, listAllProducts, listAllProductsToSeller, listProduct, unlistProduct } from "../controllers/product.controller.js";
 import multer, { memoryStorage } from "multer";
-import { createProductValidator } from "../validators/product.validator.js";
+import { createProductValidator, listProductValidator, unListProductValidator } from "../validators/product.validator.js";
 
 const upload = multer({
   storage: multer.memoryStorage(),
@@ -15,17 +15,7 @@ const upload = multer({
 
 const router = Router();
 
-router.post(
-  "/add-products",
-  authenticate,
-  (req, res, next) => {
-    if (req.user.role !== "seller") {
-      return res.status(403).json({
-        message: "user is not authorized to create products",
-      });
-    }
-    next();
-  },
+router.post("/add-products", authenticate, authenticateSeller,
   upload.array("images"),
   (req, res, next) => {
     req.body?.price && (req.body.price = JSON.parse(req.body.price));
@@ -36,8 +26,12 @@ router.post(
   createProduct,
 );
 
-
-
 router.get("/", authenticate, listAllProducts)
+
+router.get("seller", authenticate, authenticateSeller, listAllProductsToSeller)
+
+router.patch("/unlist/:id", authenticate, authenticateSeller, unListProductValidator, unlistProduct)
+
+router.patch("/unlist/:id", authenticate, authenticateSeller, listProductValidator, listProduct)
 
 export default router;
