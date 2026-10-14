@@ -1,6 +1,5 @@
 import mongoose from "mongoose"
 import connectToDB from "../config/db.js"
-// import Product from "../models/product.model.js"
 import Product from "../model/product.model.js"
 
 const products = [
