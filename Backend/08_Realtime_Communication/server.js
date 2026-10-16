@@ -6,11 +6,6 @@ const httpServer = createServer(app)
 
 initializeSocket(httpServer)
 
-/**
- * io => whole server
- * socket => single user
- */
-
 httpServer.listen(3000, () => {
     console.log("server is running on port 3000");
 })
