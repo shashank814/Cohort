@@ -1,11 +1,10 @@
 {
-  "name": "13_genai",
+  "name": "genai",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "main": "event_tool.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "dev": "node index.js"
+    "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],
   "author": "",
